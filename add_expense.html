@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Expense</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Add New Expense</h2>
+
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+      <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %} {% endif %} {% endwith %}
+
+      <form method="POST" action="{{ url_for('add_expense') }}">
+        <label for="expense">Expense:</label>
+        <input type="text" id="expense" name="expense" required />
+
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+          <option value="Food">Food</option>
+          <option value="Transport">Transport</option>
+          <option value="Utilities">Utilities</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Others">Others</option>
+        </select>
+
+        <label for="amount">Amount (₹):</label>
+        <input type="text" id="amount" name="amount" required />
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required />
+
+        <label for="time">Time:</label>
+        <input
+          type="text"
+          id="time"
+          name="time"
+          value="{{ datetime.datetime.now().strftime('%H:%M') }}"
+          required
+        />
+
+        <button type="submit">Add Expense</button>
+      </form>
+      <br />
+      <a href="{{ url_for('index') }}">Back to Home</a> |
+      <a href="{{ url_for('view_expenses') }}">View Expenses</a>
+    </div>
+  </body>
+</html>
