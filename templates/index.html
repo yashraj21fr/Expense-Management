@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Management System</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Welcome to Expense Management System</h2>
+      <a href="{{ url_for('add_expense') }}" class="button">Add Expense</a>
+      <a href="{{ url_for('view_expenses') }}" class="button">View Expenses</a>
+    </div>
+  </body>
+</html>
