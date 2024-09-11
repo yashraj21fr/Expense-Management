@@ -13,10 +13,9 @@
     <div class="container">
       <h2>Add New Expense</h2>
 
-      {% with messages = get_flashed_messages(with_categories=true) %} {% if
-      messages %} {% for category, message in messages %}
+      
       <div class="flash {{ category }}">{{ message }}</div>
-      {% endfor %} {% endif %} {% endwith %}
+      
 
       <form method="POST" action="{{ url_for('add_expense') }}">
         <label for="expense">Expense:</label>
@@ -43,7 +42,7 @@
           id="time"
           name="time"
           value="{{ datetime.datetime.now().strftime('%H:%M') }}"
-          required
+     
         />
 
         <button type="submit">Add Expense</button>
