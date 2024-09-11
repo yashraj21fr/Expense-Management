@@ -12,9 +12,9 @@
   <body>
     <div class="container">
       <h2>Recorded Expenses</h2>
-l
-      <div class="flash {{ category }}">{{ message }}</div>
-l
+
+      <div class="flash {{ category }}"></div>
+
       <table>
         <thead>
           <tr>
@@ -26,20 +26,19 @@ l
           </tr>
         </thead>
         <tbody>
-          {% for expense in expenses %}
+          l
           <tr>
             <td>{{ expense.expense }}</td>
             <td>{{ expense.category }}</td>
             <td>{{ expense.amount }}</td>
             <td>{{ expense.date }}</td>
             <td>{{ expense.time }}</td>
-          </tr>
-          {% endfor %}
+          
         </tbody>
       </table>
-      {% else %}
+      
       <p>No expenses recorded yet.</p>
-      {% endif %}
+      
       <br />
       <a href="index.html">Back to Home</a>
     </div>
